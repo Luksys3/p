@@ -25,6 +25,7 @@ Run the script with any package manager command, like so:
 ```bash
 p install
 p add <package-name>
+p add --dev <package-name>
 p remove <package-name>
 ```
 
