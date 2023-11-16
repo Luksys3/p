@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `p` script is a convenient tool that abstracts away the complexity of using different JavaScript package managers. It automatically detects and uses the correct package manager based on the presence of specific lock files in your project directory or its parent directories. Support npm, Yarn, pnpm and Bun.
+The `p` script is a convenient tool that abstracts away the complexity of using different JavaScript package managers. It automatically detects and uses the correct package manager based on the presence of specific lock files in your project directory or its parent directories. Supports npm, Yarn, pnpm and Bun.
 
 ## Features
 
