@@ -2,17 +2,58 @@
 
 # Determine the package manager based on the lock file present in the current or parent directories
 determine_package_manager() {
-    if [[ -f "bun.lockb" || -f "../bun.lockb" || -f "../../bun.lockb" ]]; then
+    if [[ -f "bun.lockb" || -f "bun.lock" ]]; then
         echo "bun"
-    elif [[ -f "package-lock.json" || -f "../package-lock.json" || -f "../../package-lock.json" ]]; then
-        echo "npm"
-    elif [[ -f "yarn.lock" || -f "../yarn.lock" || -f "../../yarn.lock" ]]; then
-        echo "yarn"
-    elif [[ -f "pnpm-lock.yaml" || -f "../pnpm-lock.yaml" || -f "../../pnpm-lock.yaml" ]]; then
+		return
+	fi
+    if [[ -f "pnpm-lock.yaml" ]]; then
         echo "pnpm"
-    else
-        echo "none"
-    fi
+		return
+	fi
+    if [[ -f "yarn.lock" ]]; then
+        echo "yarn"
+		return
+	fi
+    if [[ -f "package-lock.json" ]]; then
+        echo "npm"
+		return
+	fi
+
+    if [[ -f "../bun.lockb" || -f "../bun.lock" ]]; then
+        echo "bun"
+		return
+	fi
+    if [[ -f "../pnpm-lock.yaml" ]]; then
+        echo "pnpm"
+		return
+	fi
+    if [[ -f "../yarn.lock" ]]; then
+        echo "yarn"
+		return
+	fi
+    if [[ -f "../package-lock.json" ]]; then
+        echo "npm"
+		return
+	fi
+
+    if [[ -f "../../bun.lockb" || -f "../../bun.lock" ]]; then
+        echo "bun"
+		return
+	fi
+    if [[ -f "../../pnpm-lock.yaml" ]]; then
+        echo "pnpm"
+		return
+	fi
+    if [[ -f "../../yarn.lock" ]]; then
+        echo "yarn"
+		return
+	fi
+    if [[ -f "../../package-lock.json" ]]; then
+        echo "npm"
+		return
+	fi
+
+	echo "none"
 }
 
 # Check if the command is a script in package.json
